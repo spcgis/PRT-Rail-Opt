@@ -180,9 +180,9 @@ require([
         );
     });
 
-    map.add(TlineLayer);
-    map.add(beaverCountyBG);
-    
+        map.add(beaverCountyBG);
+        map.add(TlineLayer);
+        
     // Update the legend configuration
     const legend = new Legend({
         view: view,
