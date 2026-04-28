@@ -116,7 +116,7 @@ require([
         type: "simple",
         symbol: {
             type: "simple-line",
-            color: [0, 0, 0, 0.6], // black
+            color: [0, 0, 0], // black
             width: 3
         }
     };
