@@ -111,7 +111,7 @@ require([
     `;
     view.ui.add(filterDiv, "top-right");
 
-    // Default black renderer for block groups
+    // Default black renderer for T line
     const blackRenderer = {
         type: "simple",
         symbol: {
@@ -143,7 +143,7 @@ require([
 
 
     // Layer for T Line (black)
-    const blockGroupOutlineLayer = new FeatureLayer({
+    const TlineLayer = new FeatureLayer({
         url: "https://services3.arcgis.com/544gNI3xxlFIWuTc/arcgis/rest/services/PRT_Fixed_Guideway_Corridors/FeatureServer/0/query?outFields=*&where=1%3D1",
         id: "BlockGroupOutline",
         outFields: ["*"],
@@ -151,6 +151,8 @@ require([
         opacity: 0.2,
         renderer: blackRenderer
     });
+
+    map.add(TlineLayer);
 
     // Layer for block group outlines (green)
     const blockGroupOutlineLayer = new FeatureLayer({
