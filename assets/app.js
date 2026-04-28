@@ -148,7 +148,6 @@ require([
         id: "BlockGroupOutline",
         outFields: ["*"],
         visible: true,
-        opacity: 0.2,
         renderer: blackRenderer
     });
 
