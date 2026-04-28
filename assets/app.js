@@ -115,9 +115,9 @@ require([
     const blackRenderer = {
         type: "simple",
         symbol: {
-            type: "simple-fill",
+            type: "simple-line",
             color: [0, 0, 0, 0.6], // black
-            outline: { color: [0, 0, 0], width: 0 }
+            width: 3
         }
     };
 
