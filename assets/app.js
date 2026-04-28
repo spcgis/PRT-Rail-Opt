@@ -152,8 +152,6 @@ require([
         renderer: blackRenderer
     });
 
-    map.add(TlineLayer);
-
     // Layer for block group outlines (green)
     const blockGroupOutlineLayer = new FeatureLayer({
         url: "https://services3.arcgis.com/MV5wh5WkCMqlwISp/ArcGIS/rest/services/PRTRailOpt/FeatureServer/0",
@@ -184,6 +182,7 @@ require([
     });
 
     map.add(beaverCountyBG);
+    map.add(TlineLayer);
 
     // Update the legend configuration
     const legend = new Legend({
