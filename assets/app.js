@@ -195,7 +195,7 @@ require([
             {
                 layer: blockGroupOutlineLayer,
                 title: "Cube Zones"
-            }
+            },
             {
                 layer: TlineLayer,
                 title: "T Routes"
