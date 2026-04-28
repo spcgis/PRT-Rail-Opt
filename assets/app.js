@@ -144,7 +144,7 @@ require([
 
     // Layer for T Line (black)
     const TlineLayer = new FeatureLayer({
-        url: "https://services3.arcgis.com/544gNI3xxlFIWuTc/arcgis/rest/services/PRT_Fixed_Guideway_Corridors/FeatureServer/0/query?outFields=*&where=1%3D1",
+        url: "https://services3.arcgis.com/MV5wh5WkCMqlwISp/ArcGIS/rest/services/South_Fayette_Connected_Sidewalks/FeatureServer/0",
         id: "BlockGroupOutline",
         outFields: ["*"],
         visible: true,
