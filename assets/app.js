@@ -173,7 +173,7 @@ require([
             },
             {
                 layer: blockGroupOutlineLayer,
-                title: "Block Groups"
+                title: "Cube Zones"
             }
         ]
     });
@@ -550,7 +550,7 @@ require([
                 <button onclick="this.parentElement.parentElement.style.display='none'" 
                         style="border: none; background: none; cursor: pointer;">✕</button>
             </div>
-            <h3 style="margin-block-start:0px; margin-block-end:0px;">Selected Block Groups</h3>
+            <h3 style="margin-block-start:0px; margin-block-end:0px;">Selected Cube Zones</h3>
             <p style="margin-block-start:0px;"><em>${tripPurposeLabel} Trips</em></p>
         `;
 
@@ -560,7 +560,7 @@ require([
             
             content += `
                 <div style="margin-bottom: 2px;">
-                    <p style="margin-block-end:0px;"><strong>Block Group:</strong> ${bgId}</p>
+                    <p style="margin-block-end:0px;"><strong>Cube Zones:</strong> ${bgId}</p>
                     <p style="margin-block-start:0px;"><strong>Total Outbound Trips:</strong> ${totalTrips}</p>
                     <hr>
                 </div>
@@ -605,7 +605,7 @@ require([
             }
 
             const hoveredBGId = result.graphic.attributes.GEOID;
-            let tooltipContent = `<strong>Block Group:</strong> ${hoveredBGId}`;
+            let tooltipContent = `<strong>Cube Zone:</strong> ${hoveredBGId}`;
             
             // Check if this is a selected origin
             if (selectedOrigins.has(hoveredBGId)) {
