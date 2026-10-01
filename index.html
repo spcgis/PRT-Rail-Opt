@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>PRT Rail Optimization Trip Purpose</title>
-    <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/5.1/esri/themes/light/main.css">
     <link rel="stylesheet" href="./assets/styles.css">
-    <script src="https://js.arcgis.com/4.32/"></script>
-    <script src="./assets/app.js"></script>
+    <script type="module" src="https://js.arcgis.com/5.1/"></script>
+    <script type="module" src="./assets/app.js"></script>
 </head>
 <body>
     <div class = "container">
@@ -25,8 +25,67 @@
                 <img src="./assets/SPC_Wht.png" style="height: clamp(70px, 75px, 85px); width: auto;"/>
             </div>
         </div>
-        <!-- Lower block: the Map -->
-        <div id="viewDiv"></div>
+       <!-- Lower block: the Map - center is Downtown PGH-->
+        <arcgis-map id="map" basemap="gray-vector" center="-79.997432, 40.441037" zoom="10">
+            <div slot="top-right" id="filterContainer">
+                <div style="margin-bottom: 10px;">
+                <label for="purposeSelect">Trip Purpose:</label></br>
+                <select id="purposeSelect" style="border: 1px solid #ccc">
+                    <option value="Average_Daily_O_D_Traffic__StL_Volume_">All Purposes</option>
+                    <option value="HometoWork">Home to Work</option>
+                    <option value="HometoOther">Home to Other</option>
+                    <option value="NonHomeBasedTrips">Non Home Based</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 10px;">
+                <label for="daySelect">Day of Week:</label>
+                <select id="daySelect" style="border: 1px solid #ccc">
+                    <option value="Proposed">Service Days (M-F)</option>
+                    <option value="0: All Days (M-Su)">All (Mon-Su)</option>
+                    <option value="1: Monday (M-M)">Monday</option>
+                    <option value="2: Tuesday (Tu-Tu)">Tuesday</option>
+                    <option value="3: Wednesday (W-W)">Wednesday</option>
+                    <option value="4: Thursday (Th-Th)">Thursday</option>
+                    <option value="5: Friday (F-F)">Friday</option>
+                    <option value="6: Saturday (Sa-Sa)">Saturday</option>
+                    <option value="7: Sunday (Su-Su)">Sunday</option>
+                </select>
+            </div>
+            <div>
+                <label for="timeSelect">Time Period:</label>
+                <select id="timeSelect" style="border: 1px solid #ccc">
+                    <option value="Proposed">Service Times (5am–12am)</option>
+                    <option value="00: All Day (12am-12am)">All (12am-12pm)</option>
+                    <option value="01: 5am (5am-7am)">5am-6am</option>
+                    <option value="02: 6am (6am-8am)">6am-7am</option>
+                    <option value="03: 7am (7am-9am)">7am-8am</option>
+                    <option value="04: 8am (8am-10am)">8am-9am</option>
+                    <option value="05: 9am (9am-11am)">9am-10am</option>
+                    <option value="06: 10am (10am-11am)">10am-11am</option>
+                    <option value="07: 11am (11am-12noon)">11am-12pm</option>
+                    <option value="08: 12pm (12noon-1pm)">12pm-1pm</option>
+                    <option value="09: 1pm (1pm-2pm)">1pm-2pm</option>
+                    <option value="10: 2pm (2pm-3pm)">2pm-3pm</option>
+                    <option value="11: 3pm (3pm-4pm)">3pm-4pm</option>
+                    <option value="12: 4pm (4pm-5pm)">4pm-5pm</option>
+                    <option value="13: 5pm (5pm-6pm)">5pm-6pm</option>
+                    <option value="14: 6pm (6pm-7pm)">6pm-7pm</option>
+                    <option value="15: 7pm (7pm-8pm)">7pm-8pm</option>
+                    <option value="16: 8pm (8pm-9pm)">8pm-9pm</option>
+                    <option value="17: 9pm (9pm-10pm)">9pm-10pm</option>
+                    <option value="18: 10pm (10pm-11pm)">10pm-11pm</option>
+                    <option value="19: 11pm (11pm-12am)">11pm-12am</option>
+                </select>
+                <p style="font-size:smaller;">*Estimates are daily averages.</p>
+            </div>
+            </div>
+            <!-- The side panel -->
+            <div id="sidePanel" slot="top-left"></div>
+            <!-- The legend -->
+            <arcgis-expand slot="bottom-left" expanded>
+                <arcgis-legend></arcgis-legend>
+            </arcgis-expand>
+        </arcgis-map>
     </div>
     <script>    
     // Configure the expansion arrow
